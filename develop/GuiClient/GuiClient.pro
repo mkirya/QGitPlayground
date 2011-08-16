@@ -11,8 +11,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        MainWindow.cpp
+        MainWindow.cpp \
+    RepositoryWidget.cpp
 
-HEADERS  += MainWindow.h
+HEADERS  += MainWindow.h \
+    RepositoryWidget.h
 
-FORMS    += MainWindow.ui
+FORMS    += MainWindow.ui \
+    RepositoryWidget.ui
