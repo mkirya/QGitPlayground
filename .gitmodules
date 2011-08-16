@@ -1,3 +1,6 @@
 [submodule "develop/libqgit2"]
 	path = develop/libqgit2
 	url = git@github.com:claus007/libqgit2.git
+[submodule "develop/libgit2"]
+	path = develop/libgit2
+	url = git://github.com/libgit2/libgit2.git
