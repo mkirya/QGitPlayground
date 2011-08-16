@@ -1,0 +1,3 @@
+[submodule "develop/libqgit2"]
+	path = develop/libqgit2
+	url = git@github.com:claus007/libqgit2.git
