@@ -1,7 +1,7 @@
 
 TEMPLATE=subdirs
 
-SUBDIRS= GuiClient
+SUBDIRS= GuiClient \
+    libQtGit
 
 CONFIG+= ordered
-
