@@ -18,7 +18,11 @@ else:unix:!symbian: LIBS += -L$$OUT_PWD/../libqgit2/ -llibqgit2
 
 win32:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/release/libqgit2.lib
 else:win32:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/debug/libqgit2.lib
-else:unix:!symbian: PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/liblibqgit2.a
+else:unix:!symbian: {
+    PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/liblibqgit2.a
+}
+
+LIBS += -lz
 
 #LIBS += -L../libqgit2 \
 #    -llibqgit2
