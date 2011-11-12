@@ -1,4 +1,11 @@
 *.user
 *.o
 *.obj
+[Mm]akefile
 
+# Qt files
+moc_*
+ui_*
+
+# Binaries
+*.app/
