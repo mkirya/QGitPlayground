@@ -9,6 +9,26 @@ QT       += core gui
 TARGET = GuiClient
 TEMPLATE = app
 
+DEPENDPATH += .. ../libqgit2 ../libqgit2/libgit2/src
+INCLUDEPATH += .. ../libqgit2 ../libqgit2/libgit2 ../libqgit2/libgit2/include ../libqgit2/libgit2/src
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libqgit2/release/ -llibqgit2
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libqgit2/debug/ -llibqgit2
+else:unix:!symbian: LIBS += -L$$OUT_PWD/../libqgit2/ -llibqgit2
+
+win32:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/release/libqgit2.lib
+else:win32:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/debug/libqgit2.lib
+else:unix:!symbian: PRE_TARGETDEPS += $$OUT_PWD/../libqgit2/liblibqgit2.a
+
+#LIBS += -L../libqgit2 \
+#    -llibqgit2
+
+#win32-msvc: LIBEXT=lib
+#else: LIBEXT=a
+
+#PRE_TARGETDEPS += \
+#    ../libqgit2/liblibqgit2.$${LIBEXT}
+
 
 SOURCES += main.cpp\
         MainWindow.cpp \
