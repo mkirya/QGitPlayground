@@ -21,11 +21,18 @@ Copyright 2011 Claus Ilginnis <Claus@Ilginnis.de>
 #include "RepositoryWidget.h"
 #include "ui_RepositoryWidget.h"
 
+#include <QDir>
+
+#include "src/qgitrepository.h"
+
+
 RepositoryWidget::RepositoryWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RepositoryWidget)
 {
     ui->setupUi(this);
+
+    _repo = new LibQGit2::QGitRepository(QDir::cleanPath("~/Projects/test/git_repo"), false);
 }
 
 RepositoryWidget::~RepositoryWidget()

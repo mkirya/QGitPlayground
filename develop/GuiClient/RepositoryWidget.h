@@ -23,6 +23,10 @@ Copyright 2011 Claus Ilginnis <Claus@Ilginnis.de>
 
 #include <QWidget>
 
+namespace LibQGit2 {
+    class QGitRepository;
+}
+
 namespace Ui {
     class RepositoryWidget;
 }
@@ -37,6 +41,8 @@ public:
 
 private:
     Ui::RepositoryWidget *ui;
+
+    LibQGit2::QGitRepository *    _repo;
 };
 
 #endif // REPOSITORYWIDGET_H
