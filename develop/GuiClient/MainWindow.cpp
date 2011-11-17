@@ -61,20 +61,19 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     // lookup commit in test repo by hash of HEAD commit
-    QGitCommit * commit = new QGitCommit();
-    err = commit->lookup(&repo,
+    QGitCommit commit;
+    err = commit.lookup(repo,
                          QGitOId::fromString("cfb3b62519898e869be120ebc70800f1f2eb810b"));
 
-    QGitRevWalk revWalker(&repo);
+    QGitRevWalk revWalker(repo);
     revWalker.sorting(GIT_SORT_TOPOLOGICAL | GIT_SORT_REVERSE);
     err = revWalker.push(commit);
 
-    QGitCommit *nextCommit;
     ui->textCommitLogTest->appendPlainText(QString("Repository history:\n"));
     while ((revWalker.next(commit)) == GIT_SUCCESS)
     {
-        QString message = commit->message();
-        git_signature * auth = commit->author()->data();
+        QString message = commit.message();
+        const git_signature * auth = commit.author().data();
         ui->textCommitLogTest->appendPlainText(QString("* %1 (%2 - %3)")
                                                .arg(message).arg(auth->name).arg(auth->email));
     }
