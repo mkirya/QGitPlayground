@@ -23,6 +23,8 @@ Copyright 2011 Claus Ilginnis <Claus@Ilginnis.de>
 
 #include <QMainWindow>
 
+#include "qgitrepository.h"
+
 namespace Ui {
     class MainWindow;
 }
@@ -36,7 +38,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *                ui;
 };
 
 #endif // MAINWINDOW_H
